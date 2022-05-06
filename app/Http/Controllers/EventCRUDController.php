@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class EventCRUDController extends Controller
 {
-    public function index()
+
+
+public function index()
 {
 $data['Events'] = Event::orderBy('id','desc')->paginate(5);
 return view('events.index', $data);
@@ -20,31 +22,33 @@ return view('events.create');
 
 public function store(Request $request)
 {
+
 $request->validate([
 'ev_name' => 'required',
 'ev_describ' => 'required',
 'ev_date' => 'required',
 'image' => 'required|image',
 ]);
+
+
 $imageName = time().'.'.$request->image->extension();
-dd($imageName);
 $request->image->move(public_path('images'), $imageName);
+
+
 $event =new Event;
 $event->ev_pic= '/images/'.$imageName;
 $event->ev_name = $request->ev_name;
 $event->ev_describ = $request->ev_describ;
 $event->ev_date = $request->ev_date;
 $event->save();
-return redirect()->route('events.index')
-->with('success','Company has been created successfully.');
+return redirect()->route('events.index');
 }
 
 
 public function destroy(Event $event)
 {
 $event->delete();
-return redirect()->route('events.index')
-->with('success','Company has been deleted successfully');
+return redirect()->route('events.index');
 }
 
 
@@ -71,8 +75,7 @@ $event->ev_name = $request->ev_name;
 $event->ev_describ = $request->ev_describ;
 $event->ev_date = $request->ev_date;
 $event->save();
-return redirect()->route('events.index')
-->with('success','Company Has Been updated successfully');
+return redirect()->route('events.index');
 }
 
 }

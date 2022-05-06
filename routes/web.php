@@ -17,6 +17,11 @@ use App\Http\Controllers\EventCRUDController;
 Route::resource('events', EventCRUDController::class);
 
 
+
+
 Route::get('/', function () {
     return view('welcome');
-});
+}
+
+
+);
