@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventCRUDController;
-use App\Http\Controllers\ParticipantController;
-
+use App\Http\Controllers\ListEtudController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +15,8 @@ use App\Http\Controllers\ParticipantController;
 */
 
 Route::resource('events', EventCRUDController::class);
+
+Route::get('list_etudiants', [ListEtudController::class, 'show'])->name('ListEtudiant.index');
 Route::resource('participants', ParticipantController::class);
 
 
