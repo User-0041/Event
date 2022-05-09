@@ -15,7 +15,7 @@ use App\Http\Controllers\EventCRUDController;
 */
 
 Route::resource('events', EventCRUDController::class);
-
+Route::resource('participants', ParticipantController::class);
 
 
 
