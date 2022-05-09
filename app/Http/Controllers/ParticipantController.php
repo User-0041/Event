@@ -7,15 +7,19 @@ use Illuminate\Http\Request;
 
 class ParticipantController extends Controller
 {
-    
-    
-     
+
+
+
     public function index()
     {
-        $participants=Participant::latest()->paginate(5);
-        return view('participants.index',compact('participants'))
-        ->with('i',(request()->input('page',1)-1)*5);
+
+        $data['Participant'] =Participant::latest()->paginate(5);
+        return view('participants.index',$data);
+
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.
