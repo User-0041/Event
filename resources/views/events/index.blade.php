@@ -407,9 +407,11 @@
 										<div class="col-md-12">
                                             <form action="{{ route('events.destroy',$event->id) }}" method="Post">
                                                 <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
-                                                @csrf
+									
+												@csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>
+
                                                 </form>
 										</div>
 									</div>
