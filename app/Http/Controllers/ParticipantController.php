@@ -12,7 +12,7 @@ class ParticipantController extends Controller
 
     public function index()
     {
-
+        $test = App\Book::with('author')->get();
         $data['Participant'] =Participant::latest()->paginate(5);
         return view('participants.index',$data);
 

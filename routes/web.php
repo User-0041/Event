@@ -16,7 +16,7 @@ use App\Http\Controllers\ListEtudController;
 
 Route::resource('events', EventCRUDController::class);
 
-Route::get('list_etudiants', [ListEtudController::class, 'show'])->name('ListEtudiant.index');
+
 Route::resource('participants', ParticipantController::class);
 
 

@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function Participates()
+    {
+        return $this->hasMany('App\Participate');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
